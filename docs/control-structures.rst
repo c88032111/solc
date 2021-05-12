@@ -708,7 +708,7 @@ will have a wrong impression about the stack height at label ``two``:
             // Accessing stack variables here will lead to errors.
             jump(three)
         two:
-            7 // push somehting onto the stack
+            7 // push something onto the stack
             jump(one)
         three:
     }

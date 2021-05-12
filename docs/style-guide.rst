@@ -41,7 +41,7 @@ Use 4 spaces per indentation level.
 Tabs or Spaces
 ==============
 
-Spaces are the preferred indentation mehtod.
+Spaces are the preferred indentation method.
 
 Mixing tabs and spaces should be avoided.
 
@@ -370,14 +370,14 @@ Yes::
         address e,
         address f
     ) {
-        dosomehting();
+        dosomething();
     }
 
 No::
 
     function thisFunctionHasLotsOfArguments(address a, address b, address c,
         address d, address e, address f) {
-        dosomehting();
+        dosomething();
     }
 
     function thisFunctionHasLotsOfArguments(address a,
@@ -386,7 +386,7 @@ No::
                                             address d,
                                             address e,
                                             address f) {
-        dosomehting();
+        dosomething();
     }
 
     function thisFunctionHasLotsOfArguments(
@@ -396,7 +396,7 @@ No::
         address d,
         address e,
         address f) {
-        dosomehting();
+        dosomething();
     }
 
 If a long function declaration has modifiers, then each modifier should be
@@ -410,7 +410,7 @@ Yes::
         priced
         returns (address)
     {
-        dosomehting();
+        dosomething();
     }
 
     function thisFunctionNameIsReallyLong(
@@ -423,7 +423,7 @@ Yes::
         priced
         returns (address)
     {
-        dosomehting();
+        dosomething();
     }
 
 No::
@@ -433,13 +433,13 @@ No::
                                           onlyowner
                                           priced
                                           returns (address) {
-        dosomehting();
+        dosomething();
     }
 
     function thisFunctionNameIsReallyLong(address x, address y, address z)
         public onlyowner priced returns (address)
     {
-        dosomehting();
+        dosomething();
     }
 
     function thisFunctionNameIsReallyLong(address x, address y, address z)
@@ -447,7 +447,7 @@ No::
         onlyowner
         priced
         returns (address) {
-        dosomehting();
+        dosomething();
     }
 
 For constructor functions on inherited contracts whose bases require arguments,
@@ -462,7 +462,7 @@ Yes::
             C(param2, param3)
             D(param4)
         {
-            // do somehting with param5
+            // do something with param5
         }
     }
 
@@ -474,7 +474,7 @@ No::
         C(param2, param3)
         D(param4)
         {
-            // do somehting with param5
+            // do something with param5
         }
     }
 
@@ -483,7 +483,7 @@ No::
             B(param1)
             C(param2, param3)
             D(param4) {
-            // do somehting with param5
+            // do something with param5
         }
     }
 
@@ -491,7 +491,7 @@ When declaring short functions with a single statement, it is permissible to do 
 
 Permissible::
 
-    function shortFunction() { dosomehting(); }
+    function shortFunction() { dosomething(); }
 
 These guidelines for function declarations are intended to improve readability.
 Authors should use their best judgement as this guide does not try to cover all

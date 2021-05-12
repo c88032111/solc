@@ -191,9 +191,9 @@ private:
 	/// Scans a single Solidity token.
 	void scanToken();
 
-	/// Skips all whitespace and @returns true if somehting was skipped.
+	/// Skips all whitespace and @returns true if something was skipped.
 	bool skipWhitespace();
-	/// Skips all whitespace except Line feeds and returns true if somehting was skipped
+	/// Skips all whitespace except Line feeds and returns true if something was skipped
 	bool skipWhitespaceExceptLF();
 	Token::Value skipSingleLineComment();
 	Token::Value skipMultiLineComment();

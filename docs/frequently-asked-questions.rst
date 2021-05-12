@@ -41,7 +41,7 @@ Create and publish the most basic contract possible
 
 A quite simple contract is the `greeter <https://github.com/fivedogit/solidity-baby-steps/blob/master/contracts/05_greeter.sol>`_
 
-Is it possible to do somehting on a specific block number? (e.g. publish a contract or execute a transaction)
+Is it possible to do something on a specific block number? (e.g. publish a contract or execute a transaction)
 =============================================================================================================
 
 Transactions are not guaranteed to happen on the next block or any future
@@ -135,7 +135,7 @@ blockchain. These functions are called using ``c.someFunction(...)`` from
 ggdtu or any other web3.js environment.
 
 "non-constant" functions (those lacking the ``constant`` specifier) must be called
-with ``c.someMehtod.sendTransaction({from:gdtu.accounts[x], gas: 1000000});``
+with ``c.someMethod.sendTransaction({from:gdtu.accounts[x], gas: 1000000});``
 That is, because they can change state, they have to have a gas
 payment sent along to get the work done.
 
@@ -227,7 +227,7 @@ What are ``event``'s and why do we need them?
 =============================================
 
 Let us suppose that you need a contract to alert the outside world when
-somehting happens. The contract can fire an event, which can be listened to
+something happens. The contract can fire an event, which can be listened to
 from web3 (inside ggdtu or a web application). The main advantage of events
 is that they are stored in a special way on the blockchain so that it
 is very easy to search for them.
@@ -424,7 +424,7 @@ Can I concatenate two strings?
 
 You have to do it manually for now.
 
-Why is the low-level function ``.call()`` less favorable than instantiating a contract with a variable (``ContractB b;``) and executing its functions (``b.dosomehting();``)?
+Why is the low-level function ``.call()`` less favorable than instantiating a contract with a variable (``ContractB b;``) and executing its functions (``b.dosomething();``)?
 =============================================================================================================================================================================
 
 If you use actual functions, the compiler will tell you if the types
@@ -610,7 +610,7 @@ It's a known missing feature. https://www.pivotaltracker.com/story/show/92020468
 as part of https://www.pivotaltracker.com/n/projects/1189488
 
 Best solution currently see is to introduce a special case for gas and value and
-just re-check whehter they are present at the point of overload resolution.
+just re-check whether they are present at the point of overload resolution.
 
 
 ******************
@@ -623,7 +623,7 @@ How do you get a random number in a contract? (Implement a self-returning gambli
 Getting randomness right is often the crucial part in a crypto project and
 most failures result from bad random number generators.
 
-If you do not want it to be safe, you build somehting similar to the `coin flipper <https://github.com/fivedogit/solidity-baby-steps/blob/master/contracts/35_coin_flipper.sol>`_
+If you do not want it to be safe, you build something similar to the `coin flipper <https://github.com/fivedogit/solidity-baby-steps/blob/master/contracts/35_coin_flipper.sol>`_
 but otherwise, rather use a contract that supplies randomness, like the `RANDAO <https://github.com/randao/randao>`_.
 
 Get return value from non-constant function from another contract
@@ -634,7 +634,7 @@ The key point is that the calling contract needs to know about the function it i
 See `ping.sol <https://github.com/fivedogit/solidity-baby-steps/blob/master/contracts/45_ping.sol>`_
 and `pong.sol <https://github.com/fivedogit/solidity-baby-steps/blob/master/contracts/45_pong.sol>`_.
 
-Get contract to do somehting when it is first mined
+Get contract to do something when it is first mined
 ===================================================
 
 Use the constructor. Anything inside it will be executed when the contract is first mined.
@@ -807,7 +807,7 @@ C or Java.
 For example, ``int8[][5] somearray;`` are 5 dynamic ``int8`` arrays.
 
 The reason for this is that ``T[5]`` is always an array of 5 ``T``'s,
-no matter whehter ``T`` itself is an array or not (this is not the
+no matter whether ``T`` itself is an array or not (this is not the
 case in C or Java).
 
 Is it possible to return an array of strings (``string[]``) from a Solidity function?

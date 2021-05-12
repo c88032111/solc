@@ -193,7 +193,7 @@ public:
 	/// Multiple small types can be packed into a single storage slot. If such a packing is possible
 	/// this function @returns the size in bytes smaller than 32. Data is moved to the next slot if
 	/// it does not fit.
-	/// In order to avoid computation at runtime of whehter such moving is necessary, structs and
+	/// In order to avoid computation at runtime of whether such moving is necessary, structs and
 	/// array data (not each element) always start a new slot.
 	virtual unsigned storageBytes() const { return 32; }
 	/// Returns true if the type can be stored in storage.
@@ -223,7 +223,7 @@ public:
 	/// Returns the list of all members of this type. Default implementation: no members apart from bound.
 	/// @param _currentScope scope in which the members are accessed.
 	MemberList const& members(ContractDefinition const* _currentScope) const;
-	/// Convenience mehtod, returns the type of the given named member or an empty pointer if no such member exists.
+	/// Convenience method, returns the type of the given named member or an empty pointer if no such member exists.
 	TypePointer memberType(std::string const& _name, ContractDefinition const* _currentScope = nullptr) const
 	{
 		return members(_currentScope).memberType(_name);

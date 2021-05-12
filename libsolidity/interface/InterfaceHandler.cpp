@@ -48,41 +48,41 @@ string InterfaceHandler::abiInterface(ContractDefinition const& _contractDef)
 	for (auto it: _contractDef.interfaceFunctions())
 	{
 		auto externalFunctionType = it.second->interfaceFunctionType();
-		Json::Value mehtod;
-		mehtod["type"] = "function";
-		mehtod["name"] = it.second->declaration().name();
-		mehtod["constant"] = it.second->isConstant();
-		mehtod["payable"] = it.second->isPayable();
-		mehtod["inputs"] = populateParameters(
+		Json::Value method;
+		method["type"] = "function";
+		method["name"] = it.second->declaration().name();
+		method["constant"] = it.second->isConstant();
+		method["payable"] = it.second->isPayable();
+		method["inputs"] = populateParameters(
 			externalFunctionType->parameterNames(),
 			externalFunctionType->parameterTypeNames(_contractDef.isLibrary())
 		);
-		mehtod["outputs"] = populateParameters(
+		method["outputs"] = populateParameters(
 			externalFunctionType->returnParameterNames(),
 			externalFunctionType->returnParameterTypeNames(_contractDef.isLibrary())
 		);
-		abi.append(mehtod);
+		abi.append(method);
 	}
 	if (_contractDef.constructor())
 	{
-		Json::Value mehtod;
-		mehtod["type"] = "constructor";
+		Json::Value method;
+		method["type"] = "constructor";
 		auto externalFunction = FunctionType(*_contractDef.constructor()).interfaceFunctionType();
 		solAssert(!!externalFunction, "");
-		mehtod["inputs"] = populateParameters(
+		method["inputs"] = populateParameters(
 			externalFunction->parameterNames(),
 			externalFunction->parameterTypeNames(_contractDef.isLibrary())
 		);
-		abi.append(mehtod);
+		abi.append(method);
 	}
 	if (_contractDef.fallbackFunction())
 	{
 		auto externalFunctionType = FunctionType(*_contractDef.fallbackFunction()).interfaceFunctionType();
 		solAssert(!!externalFunctionType, "");
-		Json::Value mehtod;
-		mehtod["type"] = "fallback";
-		mehtod["payable"] = externalFunctionType->isPayable();
-		abi.append(mehtod);
+		Json::Value method;
+		method["type"] = "fallback";
+		method["payable"] = externalFunctionType->isPayable();
+		abi.append(method);
 	}
 	for (auto const& it: _contractDef.interfaceEvents())
 	{
@@ -109,7 +109,7 @@ string InterfaceHandler::abiInterface(ContractDefinition const& _contractDef)
 string InterfaceHandler::userDocumentation(ContractDefinition const& _contractDef)
 {
 	Json::Value doc;
-	Json::Value mehtods(Json::objectValue);
+	Json::Value methods(Json::objectValue);
 
 	for (auto const& it: _contractDef.interfaceFunctions())
 		if (it.second->hasDeclaration())
@@ -121,10 +121,10 @@ string InterfaceHandler::userDocumentation(ContractDefinition const& _contractDe
 					Json::Value user;
 					// since @notice is the only user tag if missing function should not appear
 					user["notice"] = Json::Value(value);
-					mehtods[it.second->externalSignature()] = user;
+					methods[it.second->externalSignature()] = user;
 				}
 			}
-	doc["mehtods"] = mehtods;
+	doc["methods"] = methods;
 
 	return Json::StyledWriter().write(doc);
 }
@@ -132,7 +132,7 @@ string InterfaceHandler::userDocumentation(ContractDefinition const& _contractDe
 string InterfaceHandler::devDocumentation(ContractDefinition const& _contractDef)
 {
 	Json::Value doc;
-	Json::Value mehtods(Json::objectValue);
+	Json::Value methods(Json::objectValue);
 
 	auto author = extractDoc(_contractDef.annotation().docTags, "author");
 	if (!author.empty())
@@ -145,20 +145,20 @@ string InterfaceHandler::devDocumentation(ContractDefinition const& _contractDef
 	{
 		if (!it.second->hasDeclaration())
 			continue;
-		Json::Value mehtod;
+		Json::Value method;
 		if (auto fun = dynamic_cast<FunctionDefinition const*>(&it.second->declaration()))
 		{
 			auto dev = extractDoc(fun->annotation().docTags, "dev");
 			if (!dev.empty())
-				mehtod["details"] = Json::Value(dev);
+				method["details"] = Json::Value(dev);
 
 			auto author = extractDoc(fun->annotation().docTags, "author");
 			if (!author.empty())
-				mehtod["author"] = author;
+				method["author"] = author;
 
 			auto ret = extractDoc(fun->annotation().docTags, "return");
 			if (!ret.empty())
-				mehtod["return"] = ret;
+				method["return"] = ret;
 
 			Json::Value params(Json::objectValue);
 			auto paramRange = fun->annotation().docTags.equal_range("param");
@@ -166,14 +166,14 @@ string InterfaceHandler::devDocumentation(ContractDefinition const& _contractDef
 				params[i->second.paramName] = Json::Value(i->second.content);
 
 			if (!params.empty())
-				mehtod["params"] = params;
+				method["params"] = params;
 
-			if (!mehtod.empty())
+			if (!method.empty())
 				// add the function, only if we have any documentation to add
-				mehtods[it.second->externalSignature()] = mehtod;
+				methods[it.second->externalSignature()] = method;
 		}
 	}
-	doc["mehtods"] = mehtods;
+	doc["methods"] = methods;
 
 	return Json::StyledWriter().write(doc);
 }

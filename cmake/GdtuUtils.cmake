@@ -94,7 +94,7 @@ macro(gdtu_default_option O DEF)
 	endif()
 endmacro()
 
-# In Windows split repositories build we need to be checking whehter or not
+# In Windows split repositories build we need to be checking whether or not
 # Debug/Release or both versions were built for the config phase to run smoothly
 macro(gdtu_check_library_link L)
 	if (${${L}_LIBRARY} AND ${${L}_LIBRARY} EQUAL "${L}_LIBRARY-NOTFOUND")

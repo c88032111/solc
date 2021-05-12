@@ -249,7 +249,7 @@ string compile(StringMap const& _sources, bool _optimize, CStyleReadFileCallback
 		}
 		catch (...)
 		{
-			output["errors"].append("Unknown exception while generating formal mehtod output.");
+			output["errors"].append("Unknown exception while generating formal method output.");
 		}
 
 		try

@@ -371,7 +371,7 @@ Assembly& Assembly::optimise(bool _enable, bool _isCreation, size_t _runs)
 		}
 	}
 
-	total += ConstantOptimisationMehtod::optimiseConstants(
+	total += ConstantOptimisationMethod::optimiseConstants(
 		_isCreation,
 		_isCreation ? 1 : _runs,
 		*this,

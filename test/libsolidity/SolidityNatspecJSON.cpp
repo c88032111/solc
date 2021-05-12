@@ -84,7 +84,7 @@ BOOST_AUTO_TEST_CASE(user_basic_test)
 	"}\n";
 
 	char const* natspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul(uint256)\":{ \"notice\": \"Multiplies `a` by 7\"}"
 	"}}";
 
@@ -100,7 +100,7 @@ BOOST_AUTO_TEST_CASE(dev_and_user_basic_test)
 	"}\n";
 
 	char const* devNatspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul(uint256)\":{ \n"
 	"        \"details\": \"Multiplies a number by 7\"\n"
 	"        }\n"
@@ -108,7 +108,7 @@ BOOST_AUTO_TEST_CASE(dev_and_user_basic_test)
 	"}}";
 
 	char const* userNatspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul(uint256)\":{ \"notice\": \"Multiplies `a` by 7\"}"
 	"}}";
 
@@ -128,7 +128,7 @@ BOOST_AUTO_TEST_CASE(user_multiline_comment)
 	"}\n";
 
 	char const* natspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul_and_add(uint256,uint256)\":{ \"notice\": \"Multiplies `a` by 7 and then adds `b`\"}"
 	"}}";
 
@@ -157,7 +157,7 @@ BOOST_AUTO_TEST_CASE(user_multiple_functions)
 	"}\n";
 
 	char const* natspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul_and_add(uint256,uint256)\":{ \"notice\": \"Multiplies `a` by 7 and then adds `b`\"},"
 	"    \"divide(uint256,uint256)\":{ \"notice\": \"Divides `input` by `div`\"},"
 	"    \"sub(int256)\":{ \"notice\": \"Subtracts 3 from `input`\"}"
@@ -171,7 +171,7 @@ BOOST_AUTO_TEST_CASE(user_empty_contract)
 	char const* sourceCode = "contract test {\n"
 	"}\n";
 
-	char const* natspec = "{\"mehtods\":{} }";
+	char const* natspec = "{\"methods\":{} }";
 
 	checkNatspec(sourceCode, natspec, true);
 }
@@ -186,8 +186,8 @@ BOOST_AUTO_TEST_CASE(dev_and_user_no_doc)
 	"  }\n"
 	"}\n";
 
-	char const* devNatspec = "{\"mehtods\":{}}";
-	char const* userNatspec = "{\"mehtods\":{}}";
+	char const* devNatspec = "{\"methods\":{}}";
+	char const* userNatspec = "{\"methods\":{}}";
 
 	checkNatspec(sourceCode, devNatspec, false);
 	checkNatspec(sourceCode, userNatspec, true);
@@ -204,7 +204,7 @@ BOOST_AUTO_TEST_CASE(dev_desc_after_nl)
 	"}\n";
 
 	char const* natspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul(uint256,uint256)\":{ \n"
 	"        \"details\": \" Multiplies a number by 7 and adds second parameter\",\n"
 	"        \"params\": {\n"
@@ -227,7 +227,7 @@ BOOST_AUTO_TEST_CASE(dev_multiple_params)
 	"}\n";
 
 	char const* natspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul(uint256,uint256)\":{ \n"
 	"        \"details\": \"Multiplies a number by 7 and adds second parameter\",\n"
 	"        \"params\": {\n"
@@ -251,7 +251,7 @@ BOOST_AUTO_TEST_CASE(dev_mutiline_param_description)
 	"}\n";
 
 	char const* natspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul(uint256,uint256)\":{ \n"
 	"        \"details\": \"Multiplies a number by 7 and adds second parameter\",\n"
 	"        \"params\": {\n"
@@ -288,7 +288,7 @@ BOOST_AUTO_TEST_CASE(dev_multiple_functions)
 	"}\n";
 
 	char const* natspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul(uint256,uint256)\":{ \n"
 	"        \"details\": \"Multiplies a number by 7 and adds second parameter\",\n"
 	"        \"params\": {\n"
@@ -326,7 +326,7 @@ BOOST_AUTO_TEST_CASE(dev_return)
 	"}\n";
 
 	char const* natspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul(uint256,uint256)\":{ \n"
 	"        \"details\": \"Multiplies a number by 7 and adds second parameter\",\n"
 	"        \"params\": {\n"
@@ -352,7 +352,7 @@ BOOST_AUTO_TEST_CASE(dev_return_desc_after_nl)
 	"}\n";
 
 	char const* natspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul(uint256,uint256)\":{ \n"
 	"        \"details\": \"Multiplies a number by 7 and adds second parameter\",\n"
 	"        \"params\": {\n"
@@ -380,7 +380,7 @@ BOOST_AUTO_TEST_CASE(dev_multiline_return)
 	"}\n";
 
 	char const* natspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul(uint256,uint256)\":{ \n"
 	"        \"details\": \"Multiplies a number by 7 and adds second parameter\",\n"
 	"        \"params\": {\n"
@@ -409,7 +409,7 @@ BOOST_AUTO_TEST_CASE(dev_multiline_comment)
 	"}\n";
 
 	char const* natspec = "{"
-	"\"mehtods\":{"
+	"\"methods\":{"
 	"    \"mul(uint256,uint256)\":{ \n"
 	"        \"details\": \"Multiplies a number by 7 and adds second parameter\",\n"
 	"        \"params\": {\n"
@@ -431,7 +431,7 @@ BOOST_AUTO_TEST_CASE(dev_contract_no_doc)
 	"}\n";
 
 	char const* natspec = "{"
-	"    \"mehtods\":{"
+	"    \"methods\":{"
 	"        \"mul(uint256,uint256)\":{ \n"
 	"            \"details\": \"Mul function\"\n"
 	"        }\n"
@@ -453,7 +453,7 @@ BOOST_AUTO_TEST_CASE(dev_contract_doc)
 	char const* natspec = "{"
 	"    \"author\": \"Lefteris\","
 	"    \"title\": \"Just a test contract\","
-	"    \"mehtods\":{"
+	"    \"methods\":{"
 	"        \"mul(uint256,uint256)\":{ \n"
 	"            \"details\": \"Mul function\"\n"
 	"        }\n"
@@ -476,7 +476,7 @@ BOOST_AUTO_TEST_CASE(dev_author_at_function)
 	char const* natspec = "{"
 	"    \"author\": \"Lefteris\","
 	"    \"title\": \"Just a test contract\","
-	"    \"mehtods\":{"
+	"    \"methods\":{"
 	"        \"mul(uint256,uint256)\":{ \n"
 	"            \"details\": \"Mul function\",\n"
 	"            \"author\": \"John Doe\",\n"
@@ -491,7 +491,7 @@ BOOST_AUTO_TEST_CASE(natspec_notice_without_tag)
 {
 	char const* sourceCode = R"(
 		contract test {
-			/// I do somehting awesome
+			/// I do something awesome
 			function mul(uint a) returns(uint d) { return a * 7; }
 		}
 	)";
@@ -499,9 +499,9 @@ BOOST_AUTO_TEST_CASE(natspec_notice_without_tag)
 
 	char const* natspec = R"ABCDEF(
 	{
-	   "mehtods" : {
+	   "methods" : {
 		  "mul(uint256)" : {
-			 "notice" : "I do somehting awesome"
+			 "notice" : "I do something awesome"
 		  }
 	   }
 	}
@@ -514,7 +514,7 @@ BOOST_AUTO_TEST_CASE(natspec_multiline_notice_without_tag)
 {
 	char const* sourceCode = R"(
 		contract test {
-			/// I do somehting awesome
+			/// I do something awesome
 			/// which requires two lines to explain
 			function mul(uint a) returns(uint d) { return a * 7; }
 		}
@@ -522,9 +522,9 @@ BOOST_AUTO_TEST_CASE(natspec_multiline_notice_without_tag)
 
 	char const* natspec = R"ABCDEF(
 	{
-	   "mehtods" : {
+	   "methods" : {
 		  "mul(uint256)" : {
-			 "notice" : "I do somehting awesome which requires two lines to explain"
+			 "notice" : "I do something awesome which requires two lines to explain"
 		  }
 	   }
 	}
@@ -542,7 +542,7 @@ BOOST_AUTO_TEST_CASE(empty_comment)
 	)";
 	char const* natspec = R"ABCDEF(
 	{
-	   "mehtods" : {}
+	   "methods" : {}
 	}
 	)ABCDEF";
 

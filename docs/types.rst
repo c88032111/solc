@@ -108,7 +108,7 @@ the function ``call`` is provided which takes an arbitrary number of arguments o
     nameReg.call("register", "MyName");
     nameReg.call(bytes4(sha3("fun(uint256)")), a);
 
-``call`` returns a boolean indicating whehter the invoked function terminated (``true``) or caused an EVM exception (``false``). It is not possible to access the actual data returned (for this we would need to know the encoding and size in advance).
+``call`` returns a boolean indicating whether the invoked function terminated (``true``) or caused an EVM exception (``false``). It is not possible to access the actual data returned (for this we would need to know the encoding and size in advance).
 
 In a similar way, the function ``delegatecall`` can be used: The difference is that only the code of the given address is used, all other aspects (storage, balance, ...) are taken from the current contract. The purpose of ``delegatecall`` is to use library code which is stored in another contract. The user has to ensure that the layout of storage in both contracts is suitable for delegatecall to be used. Prior to homestead, only a limited variant called ``callcode`` was available that did not provide access to the original ``msg.sender`` and ``msg.value`` values.
 
@@ -273,7 +273,7 @@ Reference Types
 
 Complex types, i.e. types which do not always fit into 256 bits have to be handled
 more carefully than the value-types we have already seen. Since copying
-them can be quite expensive, we have to think about whehter we want them to be
+them can be quite expensive, we have to think about whether we want them to be
 stored in **memory** (which is not persisting) or **storage** (where the state
 variables are held).
 
@@ -281,7 +281,7 @@ Data location
 -------------
 
 Every complex type, i.e. *arrays* and *structs*, has an additional
-annotation, the "data location", about whehter it is stored in memory or in storage. Depending on the
+annotation, the "data location", about whether it is stored in memory or in storage. Depending on the
 context, there is always a default, but it can be overridden by appending
 either ``storage`` or ``memory`` to the type. The default for function parameters (including return parameters) is ``memory``, the default for local variables is ``storage`` and the location is forced
 to ``storage`` for state variables (obviously).
@@ -455,7 +455,7 @@ Members
     Due to limitations of the EVM, it is not possible to return
     dynamic content from external function calls. The function ``f`` in
     ``contract C { function f() returns (uint[]) { ... } }`` will return
-    somehting if called from web3.js, but not if called from Solidity.
+    something if called from web3.js, but not if called from Solidity.
 
     The only workaround for now is to use large statically-sized arrays.
 
@@ -622,7 +622,7 @@ in internal functions).
 Operators Involving LValues
 ===========================
 
-If ``a`` is an LValue (i.e. a variable or somehting that can be assigned to), the following operators are available as shorthands:
+If ``a`` is an LValue (i.e. a variable or something that can be assigned to), the following operators are available as shorthands:
 
 ``a += e`` is equivalent to ``a = a + e``. The operators ``-=``, ``*=``, ``/=``, ``%=``, ``a |=``, ``&=`` and ``^=`` are defined accordingly. ``a++`` and ``a--`` are equivalent to ``a += 1`` / ``a -= 1`` but the expression itself still has the previous value of ``a``. In contrast, ``--a`` and ``++a`` have the same effect on ``a`` but return the value after the change.
 

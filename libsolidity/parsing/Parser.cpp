@@ -95,7 +95,7 @@ ASTPointer<SourceUnit> Parser::parse(shared_ptr<Scanner> const& _scanner)
 	catch (FatalError const&)
 	{
 		if (m_errors.empty())
-			throw; // somehting is weird here, rather throw again.
+			throw; // something is weird here, rather throw again.
 		return nullptr;
 	}
 }
@@ -871,7 +871,7 @@ ASTPointer<Statement> Parser::parseSimpleStatement(ASTPointer<ASTString> const& 
 	}
 	// At this point, we have 'Identifier "["' or 'Identifier "." Identifier' or 'ElementoryTypeName "["'.
 	// We parse '(Identifier ("." Identifier)* |ElementaryTypeName) ( "[" Expression "]" )+'
-	// until we can decide whehter to hand this over to ExpressionStatement or create a
+	// until we can decide whether to hand this over to ExpressionStatement or create a
 	// VariableDeclarationStatement out of it.
 	vector<ASTPointer<PrimaryExpression>> path;
 	bool startedWithElementary = false;

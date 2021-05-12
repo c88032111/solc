@@ -26,7 +26,7 @@ using namespace std;
 using namespace dev;
 using namespace dev::gdtu;
 
-unsigned ConstantOptimisationMehtod::optimiseConstants(
+unsigned ConstantOptimisationMethod::optimiseConstants(
 	bool _isCreation,
 	size_t _runs,
 	Assembly& _assembly,
@@ -47,11 +47,11 @@ unsigned ConstantOptimisationMehtod::optimiseConstants(
 		params.multiplicity = it.second;
 		params.isCreation = _isCreation;
 		params.runs = _runs;
-		LiteralMehtod lit(params, item.data());
+		LiteralMethod lit(params, item.data());
 		bigint literalGas = lit.gasNeeded();
-		CodeCopyMehtod copy(params, item.data());
+		CodeCopyMethod copy(params, item.data());
 		bigint copyGas = copy.gasNeeded();
-		ComputeMehtod compute(params, item.data());
+		ComputeMethod compute(params, item.data());
 		bigint computeGas = compute.gasNeeded();
 		if (copyGas < literalGas && copyGas < computeGas)
 		{
@@ -67,7 +67,7 @@ unsigned ConstantOptimisationMehtod::optimiseConstants(
 	return optimisations;
 }
 
-bigint ConstantOptimisationMehtod::simpleRunGas(AssemblyItems const& _items)
+bigint ConstantOptimisationMethod::simpleRunGas(AssemblyItems const& _items)
 {
 	bigint gas = 0;
 	for (AssemblyItem const& item: _items)
@@ -78,7 +78,7 @@ bigint ConstantOptimisationMehtod::simpleRunGas(AssemblyItems const& _items)
 	return gas;
 }
 
-bigint ConstantOptimisationMehtod::dataGas(bytes const& _data) const
+bigint ConstantOptimisationMethod::dataGas(bytes const& _data) const
 {
 	if (m_params.isCreation)
 	{
@@ -91,7 +91,7 @@ bigint ConstantOptimisationMehtod::dataGas(bytes const& _data) const
 		return GasCosts::createDataGas * dataSize();
 }
 
-size_t ConstantOptimisationMehtod::bytesRequired(AssemblyItems const& _items)
+size_t ConstantOptimisationMethod::bytesRequired(AssemblyItems const& _items)
 {
 	size_t size = 0;
 	for (AssemblyItem const& item: _items)
@@ -99,7 +99,7 @@ size_t ConstantOptimisationMehtod::bytesRequired(AssemblyItems const& _items)
 	return size;
 }
 
-void ConstantOptimisationMehtod::replaceConstants(
+void ConstantOptimisationMethod::replaceConstants(
 	AssemblyItems& _items,
 	AssemblyItems const& _replacement
 ) const
@@ -115,7 +115,7 @@ void ConstantOptimisationMehtod::replaceConstants(
 	}
 }
 
-bigint LiteralMehtod::gasNeeded()
+bigint LiteralMethod::gasNeeded()
 {
 	return combineGas(
 		simpleRunGas({Instruction::PUSH1}),
@@ -125,8 +125,8 @@ bigint LiteralMehtod::gasNeeded()
 	);
 }
 
-CodeCopyMehtod::CodeCopyMehtod(Params const& _params, u256 const& _value):
-	ConstantOptimisationMehtod(_params, _value)
+CodeCopyMethod::CodeCopyMethod(Params const& _params, u256 const& _value):
+	ConstantOptimisationMethod(_params, _value)
 {
 	m_copyRoutine = AssemblyItems{
 		u256(0),
@@ -143,7 +143,7 @@ CodeCopyMehtod::CodeCopyMehtod(Params const& _params, u256 const& _value):
 	};
 }
 
-bigint CodeCopyMehtod::gasNeeded()
+bigint CodeCopyMethod::gasNeeded()
 {
 	return combineGas(
 		// Run gas: we ignore memory increase costs
@@ -155,14 +155,14 @@ bigint CodeCopyMehtod::gasNeeded()
 	);
 }
 
-void CodeCopyMehtod::execute(Assembly& _assembly, AssemblyItems& _items)
+void CodeCopyMethod::execute(Assembly& _assembly, AssemblyItems& _items)
 {
 	bytes data = toBigEndian(m_value);
 	m_copyRoutine[4] = _assembly.newData(data);
 	replaceConstants(_items, m_copyRoutine);
 }
 
-AssemblyItems ComputeMehtod::findRepresentation(u256 const& _value)
+AssemblyItems ComputeMethod::findRepresentation(u256 const& _value)
 {
 	if (_value < 0x10000)
 		// Very small value, not worth computing
@@ -173,7 +173,7 @@ AssemblyItems ComputeMehtod::findRepresentation(u256 const& _value)
 	else
 	{
 		// Decompose value into a * 2**k + b where abs(b) << 2**k
-		// Is not always better, try literal and decomposition mehtod.
+		// Is not always better, try literal and decomposition method.
 		AssemblyItems routine{u256(_value)};
 		bigint bestGas = gasNeeded(routine);
 		for (unsigned bits = 255; bits > 8; --bits)
@@ -212,7 +212,7 @@ AssemblyItems ComputeMehtod::findRepresentation(u256 const& _value)
 	}
 }
 
-bigint ComputeMehtod::gasNeeded(AssemblyItems const& _routine)
+bigint ComputeMethod::gasNeeded(AssemblyItems const& _routine)
 {
 	size_t numExps = count(_routine.begin(), _routine.end(), Instruction::EXP);
 	return combineGas(

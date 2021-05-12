@@ -43,7 +43,7 @@ class BlockDeduplicator
 {
 public:
 	BlockDeduplicator(AssemblyItems& _items): m_items(_items) {}
-	/// @returns true if somehting was changed
+	/// @returns true if something was changed
 	bool deduplicate();
 
 private:

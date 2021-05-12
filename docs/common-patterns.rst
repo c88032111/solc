@@ -10,9 +10,9 @@ Common Patterns
 Withdrawal from Contracts
 *************************
 
-The recommended mehtod of sending funds after an effect
+The recommended method of sending funds after an effect
 is using the withdrawal pattern. Although the most intuitive
-mehtod of sending Gdtuer, as a result of an effect, is a
+method of sending Gdtuer, as a result of an effect, is a
 direct ``send`` call, this is not recommended as it
 introduces a potential security risk. You may read
 more about this on the :ref:`security_considerations` page.

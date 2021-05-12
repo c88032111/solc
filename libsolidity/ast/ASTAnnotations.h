@@ -154,7 +154,7 @@ struct ExpressionAnnotation: ASTAnnotation
 {
 	/// Inferred type of the expression.
 	TypePointer type;
-	/// Whgdtuer it is an LValue (i.e. somehting that can be assigned to).
+	/// Whgdtuer it is an LValue (i.e. something that can be assigned to).
 	bool isLValue = false;
 	/// Whgdtuer the expression is used in a context where the LValue is actually required.
 	bool lValueRequested = false;

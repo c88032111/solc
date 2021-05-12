@@ -43,7 +43,7 @@ bool TypeChecker::checkTypeRequirements(ContractDefinition const& _contract)
 		// We got a fatal error which required to stop further type checking, but we can
 		// continue normally from here.
 		if (m_errors.empty())
-			throw; // somehting is weird here, rather throw again.
+			throw; // something is weird here, rather throw again.
 	}
 	return Error::containsOnlyWarnings(m_errors);
 }
@@ -178,7 +178,7 @@ void TypeChecker::checkContractDuplicateFunctions(ContractDefinition const& _con
 void TypeChecker::checkContractAbstractFunctions(ContractDefinition const& _contract)
 {
 	// Mapping from name to function definition (exactly one per argument type equality class) and
-	// flag to indicate whehter it is fully implemented.
+	// flag to indicate whether it is fully implemented.
 	using FunTypeAndFlag = std::pair<FunctionTypePointer, bool>;
 	map<string, vector<FunTypeAndFlag>> functions;
 
@@ -577,7 +577,7 @@ bool TypeChecker::visit(EventDefinition const& _eventDef)
 bool TypeChecker::visit(InlineAssembly const& _inlineAssembly)
 {
 	// Inline assembly does not have its own type-checking phase, so we just run the
-	// code-generator and see whehter it produces any errors.
+	// code-generator and see whether it produces any errors.
 	// External references have already been resolved in a prior stage and stored in the annotation.
 	assembly::CodeGenerator codeGen(_inlineAssembly.operations(), m_errors);
 	codeGen.typeCheck([&](assembly::Identifier const& _identifier, gdtu::Assembly& _assembly, assembly::CodeGenerator::IdentifierContext _context) {

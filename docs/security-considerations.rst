@@ -227,7 +227,7 @@ Keep your contracts small and easily understandable. Single out unrelated
 functionality in other contracts or into libraries. General recommendations
 about source code quality of course apply: Limit the amount of local variables,
 the length of functions and so on. Document your functions so that others
-can see what your intention was and whehter it is different than what the code does.
+can see what your intention was and whether it is different than what the code does.
 
 Use the Checks-Effects-Interactions Pattern
 ===========================================
@@ -278,5 +278,5 @@ it will be better documented soon.
 
 Note that formal verification itself can only help you understand the
 difference between what you did (the specification) and how you did it
-(the actual implementation). You still need to check whehter the specification
+(the actual implementation). You still need to check whether the specification
 is what you wanted and that you did not miss any unintended effects of it.

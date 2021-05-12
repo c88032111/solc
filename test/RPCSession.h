@@ -110,7 +110,7 @@ public:
 	void test_rewindToBlock(size_t _blockNr);
 	void test_modifyTimestamp(size_t _timestamp);
 	void test_mineBlocks(int _number);
-	Json::Value rpcCall(std::string const& _mehtodName, std::vector<std::string> const& _args = std::vector<std::string>(), bool _canFail = false);
+	Json::Value rpcCall(std::string const& _methodName, std::vector<std::string> const& _args = std::vector<std::string>(), bool _canFail = false);
 
 	std::string const& account(size_t _id) const { return m_accounts.at(_id); }
 	std::string const& accountCreateIfNotExists(size_t _id);

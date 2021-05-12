@@ -60,7 +60,7 @@ bool NameAndTypeResolver::registerDeclarations(SourceUnit& _sourceUnit)
 	catch (FatalError const&)
 	{
 		if (m_errors.empty())
-			throw; // somehting is weird here, rather throw again.
+			throw; // something is weird here, rather throw again.
 		return false;
 	}
 	return true;
@@ -198,7 +198,7 @@ bool NameAndTypeResolver::resolveNamesAndTypes(ContractDefinition& _contract)
 	catch (FatalError const&)
 	{
 		if (m_errors.empty())
-			throw; // somehting is weird here, rather throw again.
+			throw; // something is weird here, rather throw again.
 		return false;
 	}
 	return true;
@@ -214,7 +214,7 @@ bool NameAndTypeResolver::updateDeclaration(Declaration const& _declaration)
 	catch (FatalError const&)
 	{
 		if (m_errors.empty())
-			throw; // somehting is weird here, rather throw again.
+			throw; // something is weird here, rather throw again.
 		return false;
 	}
 	return true;

@@ -97,7 +97,7 @@ BOOST_AUTO_TEST_CASE(empty_contract)
 	checkInterface(sourceCode, interface);
 }
 
-BOOST_AUTO_TEST_CASE(multiple_mehtods)
+BOOST_AUTO_TEST_CASE(multiple_methods)
 {
 	char const* sourceCode = "contract test {\n"
 	"  function f(uint a) returns(uint d) { return a * 7; }\n"
@@ -180,9 +180,9 @@ BOOST_AUTO_TEST_CASE(multiple_params)
 	checkInterface(sourceCode, interface);
 }
 
-BOOST_AUTO_TEST_CASE(multiple_mehtods_order)
+BOOST_AUTO_TEST_CASE(multiple_methods_order)
 {
-	// mehtods are expected to be in alpabetical order
+	// methods are expected to be in alpabetical order
 	char const* sourceCode = "contract test {\n"
 	"  function f(uint a) returns(uint d) { return a * 7; }\n"
 	"  function c(uint b) returns(uint e) { return b * 8; }\n"

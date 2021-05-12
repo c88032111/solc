@@ -242,7 +242,7 @@ void ControlFlowGraph::gatherKnowledge()
 	{
 		WorkQueueItem item = move(workQueue.back());
 		workQueue.pop_back();
-		//@todo we might have to do somehting like incrementing the sequence number for each JUMPDEST
+		//@todo we might have to do something like incrementing the sequence number for each JUMPDEST
 		assertThrow(!!item.blockId, OptimizerException, "");
 		if (!m_blocks.count(item.blockId))
 			continue; // too bad, we do not know the tag, probably an invalid jump

@@ -185,7 +185,7 @@ and the default is ``internal``.
 
 .. note::
     Everything that is inside a contract is visible to
-    all external observers. Making somehting ``private``
+    all external observers. Making something ``private``
     only prevents other contracts from accessing and modifying
     the information, but it will still be visible to the
     whole world outside of the blockchain.
@@ -787,7 +787,7 @@ derived contract: Final, Base1, Base2, mortal, owned).
 The actual function that is called when using super is
 not known in the context of the class where it is used,
 although its type is known. This is similar for ordinary
-virtual mehtod lookup.
+virtual method lookup.
 
 .. index:: ! base;constructor
 
@@ -925,7 +925,7 @@ more advanced example to implement a set).
       // its contents is passed as part of the call.  This is a
       // special feature of library functions.  It is idiomatic
       // to call the first parameter 'self', if the function can
-      // be seen as a mehtod of that object.
+      // be seen as a method of that object.
       function insert(Data storage self, uint value)
           returns (bool)
       {

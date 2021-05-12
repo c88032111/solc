@@ -30,8 +30,8 @@ namespace solidity
 
 /**
  * The module that performs syntax analysis on the AST:
- *  - whehter continue/break is in a for/while loop.
- *  - whehter a modifier contains at least one '_'
+ *  - whether continue/break is in a for/while loop.
+ *  - whether a modifier contains at least one '_'
  */
 class SyntaxChecker: private ASTConstVisitor
 {
@@ -64,10 +64,10 @@ private:
 
 	ErrorList& m_errors;
 
-	/// Flag that indicates whehter a function modifier actually contains '_'.
+	/// Flag that indicates whether a function modifier actually contains '_'.
 	bool m_placeholderFound = false;
 
-	/// Flag that indicates whehter some version pragma was present.
+	/// Flag that indicates whether some version pragma was present.
 	bool m_versionPragmaFound = false;
 
 	int m_inLoopDepth = 0;

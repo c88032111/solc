@@ -34,7 +34,7 @@
 #
 # All remaining arguments are collected in a variable
 # <prefix>_UNPARSED_ARGUMENTS, this can be checked afterwards to see
-# whehter your macro was called with unrecognized parameters.
+# whether your macro was called with unrecognized parameters.
 #
 # As an example here a my_install() macro, which takes similar arguments
 # as the real install() command:

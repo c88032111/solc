@@ -972,7 +972,7 @@ BOOST_AUTO_TEST_CASE(cse_equality_on_initially_known_stack)
 
 BOOST_AUTO_TEST_CASE(cse_access_previous_sequence)
 {
-	// Tests that the code generator detects whehter it tries to access SLOAD instructions
+	// Tests that the code generator detects whether it tries to access SLOAD instructions
 	// from a sequenced expression which is not in its scope.
 	gdtu::KnownState state = createInitialState(AssemblyItems{
 		u256(0),

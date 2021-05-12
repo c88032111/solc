@@ -54,7 +54,7 @@ public:
 	std::vector<Declaration const*> resolveName(ASTString const& _name, bool _recursive = false) const;
 	ASTNode const* enclosingNode() const { return m_enclosingNode; }
 	std::map<ASTString, std::vector<Declaration const*>> const& declarations() const { return m_declarations; }
-	/// @returns whehter declaration is valid, and if not also returns previous declaration.
+	/// @returns whether declaration is valid, and if not also returns previous declaration.
 	Declaration const* conflictingDeclaration(Declaration const& _declaration, ASTString const* _name = nullptr) const;
 
 private:

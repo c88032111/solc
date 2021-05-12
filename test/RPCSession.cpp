@@ -284,9 +284,9 @@ void RPCSession::test_modifyTimestamp(size_t _timestamp)
 	rpcCall("test_modifyTimestamp", { to_string(_timestamp) });
 }
 
-Json::Value RPCSession::rpcCall(string const& _mehtodName, vector<string> const& _args, bool _canFail)
+Json::Value RPCSession::rpcCall(string const& _methodName, vector<string> const& _args, bool _canFail)
 {
-	string request = "{\"jsonrpc\":\"2.0\",\"mehtod\":\"" + _mehtodName + "\",\"params\":[";
+	string request = "{\"jsonrpc\":\"2.0\",\"method\":\"" + _methodName + "\",\"params\":[";
 	for (size_t i = 0; i < _args.size(); ++i)
 	{
 		request += _args[i];

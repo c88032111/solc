@@ -40,7 +40,7 @@ shared_ptr<assembly::Block> Parser::parse(std::shared_ptr<Scanner> const& _scann
 	catch (FatalError const&)
 	{
 		if (m_errors.empty())
-			throw; // somehting is weird here, rather throw again.
+			throw; // something is weird here, rather throw again.
 	}
 	return nullptr;
 }

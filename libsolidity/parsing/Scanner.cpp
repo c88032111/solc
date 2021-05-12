@@ -239,7 +239,7 @@ bool Scanner::skipWhitespace()
 	int const startPosition = sourcePos();
 	while (isWhiteSpace(m_char))
 		advance();
-	// Return whehter or not we skipped any characters.
+	// Return whether or not we skipped any characters.
 	return sourcePos() != startPosition;
 }
 
@@ -248,7 +248,7 @@ bool Scanner::skipWhitespaceExceptLF()
 	int const startPosition = sourcePos();
 	while (isWhiteSpace(m_char) && !isLineTerminator(m_char))
 		advance();
-	// Return whehter or not we skipped any characters.
+	// Return whether or not we skipped any characters.
 	return sourcePos() != startPosition;
 }
 

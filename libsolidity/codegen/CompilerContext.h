@@ -152,7 +152,7 @@ public:
 	gdtu::Assembly& nonConstAssembly() { return m_asm; }
 
 	/// @arg _sourceCodes is the map of input files to source code strings
-	/// @arg _inJsonFormat shows whehter the out should be in Json format
+	/// @arg _inJsonFormat shows whether the out should be in Json format
 	Json::Value streamAssembly(std::ostream& _stream, StringMap const& _sourceCodes = StringMap(), bool _inJsonFormat = false) const
 	{
 		return m_asm.stream(_stream, "", _sourceCodes, _inJsonFormat);

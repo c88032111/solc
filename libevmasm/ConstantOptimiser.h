@@ -37,7 +37,7 @@ class Assembly;
 /**
  * Abstract base class for one way to change how constants are represented in the code.
  */
-class ConstantOptimisationMehtod
+class ConstantOptimisationMethod
 {
 public:
 	/// Tries to optimised how constants are represented in the source code and modifies
@@ -57,7 +57,7 @@ public:
 		size_t multiplicity; ///< Number of times the constant appears in the code.
 	};
 
-	explicit ConstantOptimisationMehtod(Params const& _params, u256 const& _value):
+	explicit ConstantOptimisationMethod(Params const& _params, u256 const& _value):
 		m_params(_params), m_value(_value) {}
 	virtual bigint gasNeeded() = 0;
 	virtual void execute(Assembly& _assembly, AssemblyItems& _items) = 0;
@@ -91,25 +91,25 @@ protected:
 };
 
 /**
- * Optimisation mehtod that pushes the constant to the stack literally. This is the default mehtod,
+ * Optimisation method that pushes the constant to the stack literally. This is the default method,
  * i.e. executing it does not alter the Assembly.
  */
-class LiteralMehtod: public ConstantOptimisationMehtod
+class LiteralMethod: public ConstantOptimisationMethod
 {
 public:
-	explicit LiteralMehtod(Params const& _params, u256 const& _value):
-		ConstantOptimisationMehtod(_params, _value) {}
+	explicit LiteralMethod(Params const& _params, u256 const& _value):
+		ConstantOptimisationMethod(_params, _value) {}
 	virtual bigint gasNeeded() override;
 	virtual void execute(Assembly&, AssemblyItems&) override {}
 };
 
 /**
- * Mehtod that stores the data in the .data section of the code and copies it to the stack.
+ * Method that stores the data in the .data section of the code and copies it to the stack.
  */
-class CodeCopyMehtod: public ConstantOptimisationMehtod
+class CodeCopyMethod: public ConstantOptimisationMethod
 {
 public:
-	explicit CodeCopyMehtod(Params const& _params, u256 const& _value);
+	explicit CodeCopyMethod(Params const& _params, u256 const& _value);
 	virtual bigint gasNeeded() override;
 	virtual void execute(Assembly& _assembly, AssemblyItems& _items) override;
 
@@ -118,13 +118,13 @@ protected:
 };
 
 /**
- * Mehtod that tries to compute the constant.
+ * Method that tries to compute the constant.
  */
-class ComputeMehtod: public ConstantOptimisationMehtod
+class ComputeMethod: public ConstantOptimisationMethod
 {
 public:
-	explicit ComputeMehtod(Params const& _params, u256 const& _value):
-		ConstantOptimisationMehtod(_params, _value)
+	explicit ComputeMethod(Params const& _params, u256 const& _value):
+		ConstantOptimisationMethod(_params, _value)
 	{
 		m_routine = findRepresentation(m_value);
 	}

@@ -52,10 +52,10 @@ public:
 	/// A dummy flag to avoid accidental construction from pointer.
 	enum ConstructFromPointerType { ConstructFromPointer };
 
-	/// Mehtod to convert from a string.
+	/// Method to convert from a string.
 	enum ConstructFromStringType { FromHex, FromBinary };
 
-	/// Mehtod to convert from a string.
+	/// Method to convert from a string.
 	enum ConstructFromHashType { AlignLeft, AlignRight, FailIfDifferent };
 
 	/// Construct an empty hash.

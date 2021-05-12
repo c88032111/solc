@@ -126,12 +126,12 @@ private:
 	/// For source code of the form "a[][8]" ("IndexAccessStructure"), this is not possible to
 	/// decide with constant look-ahead.
 	LookAheadInfo peekStatementType() const;
-	/// @returns a typename parsed in look-ahead fashion from somehting like "a.b[8][2**70]".
+	/// @returns a typename parsed in look-ahead fashion from something like "a.b[8][2**70]".
 	ASTPointer<TypeName> typeNameIndexAccessStructure(
 		std::vector<ASTPointer<PrimaryExpression>> const& _path,
 		std::vector<std::pair<ASTPointer<Expression>, SourceLocation>> const& _indices
 	);
-	/// @returns an expression parsed in look-ahead fashion from somehting like "a.b[8][2**70]".
+	/// @returns an expression parsed in look-ahead fashion from something like "a.b[8][2**70]".
 	ASTPointer<Expression> expressionFromIndexAccessStructure(
 		std::vector<ASTPointer<PrimaryExpression>> const& _path,
 		std::vector<std::pair<ASTPointer<Expression>, SourceLocation>> const& _indices
@@ -141,7 +141,7 @@ private:
 	/// Creates an empty ParameterList at the current location (used if parameters can be omitted).
 	ASTPointer<ParameterList> createEmptyParameterList();
 
-	/// Flag that signifies whehter '_' is parsed as a PlaceholderStatement or a regular identifier.
+	/// Flag that signifies whether '_' is parsed as a PlaceholderStatement or a regular identifier.
 	bool m_insideModifier = false;
 };
 

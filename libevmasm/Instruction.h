@@ -252,7 +252,7 @@ struct InstructionInfo
 /// Information on all the instructions.
 InstructionInfo instructionInfo(Instruction _inst);
 
-/// check whehter instructions exists
+/// check whether instructions exists
 bool isValidInstruction(Instruction _inst);
 
 /// Convert from string mnemonic to Instruction type.

@@ -166,7 +166,7 @@ BOOST_AUTO_TEST_CASE(two_exact_functions)
 		}
 	)";
 	// with support of overloaded functions, during parsing,
-	// we can't determine whehter they match exactly, however
+	// we can't determine whether they match exactly, however
 	// it will throw DeclarationError in following stage.
 	BOOST_CHECK(successParse(text));
 }

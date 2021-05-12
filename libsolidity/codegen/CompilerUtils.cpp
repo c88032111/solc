@@ -308,7 +308,7 @@ void CompilerUtils::convertType(Type const& _typeOnStack, Type const& _targetTyp
 {
 	// For a type extension, we need to remove all higher-order bits that we might have ignored in
 	// previous operations.
-	// @todo: store in the AST whehter the operand might have "dirty" higher order bits
+	// @todo: store in the AST whether the operand might have "dirty" higher order bits
 
 	if (_typeOnStack == _targetType && !_cleanupNeeded)
 		return;

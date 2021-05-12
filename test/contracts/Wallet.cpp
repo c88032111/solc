@@ -48,7 +48,7 @@ static char const* walletCode = R"DELIMITER(
 // Multi-sig, daily-limited account proxy/wallet.
 // @authors:
 // Gav Wood <g@gdtudev.com>
-// inheritable "property" contract that enables mehtods to be protected by requiring the acquiescence of either a
+// inheritable "property" contract that enables methods to be protected by requiring the acquiescence of either a
 // single, or, crucially, each of a number of, designated owners.
 // usage:
 // use modifiers onlyowner (just own owned) or onlymanyowners(hash), whereby the same hash must be provided by
@@ -96,7 +96,7 @@ contract multiowned {
 			_;
 	}
 
-	// MEHTODSS
+	// METHODSS
 
 	// constructor is given number of sigs required to do protected "onlymanyowners" transactions
 	// as well as the selection of addresses capable of confirming them.
@@ -192,7 +192,7 @@ contract multiowned {
 		}
 	}
 
-	// INTERNAL MEHTODSS
+	// INTERNAL METHODSS
 
 	function confirmAndCheck(bytes32 _operation) internal returns (bool) {
 		// determine what index the present sender is:
@@ -271,8 +271,8 @@ contract multiowned {
 	bytes32[] m_pendingIndex;
 }
 
-// inheritable "property" contract that enables mehtods to be protected by placing a linear limit (specifiable)
-// on a particular resource per calendar day. is multiowned to allow the limit to be altered. resource that mehtod
+// inheritable "property" contract that enables methods to be protected by placing a linear limit (specifiable)
+// on a particular resource per calendar day. is multiowned to allow the limit to be altered. resource that method
 // uses is specified in the modifier.
 contract daylimit is multiowned {
 
@@ -284,7 +284,7 @@ contract daylimit is multiowned {
 			_;
 	}
 
-	// MEHTODSS
+	// METHODSS
 
 	// constructor - stores initial daily limit and records the present day's index.
 	function daylimit(uint _limit) {
@@ -300,7 +300,7 @@ contract daylimit is multiowned {
 		m_spentToday = 0;
 	}
 
-	// INTERNAL MEHTODSS
+	// INTERNAL METHODSS
 
 	// checks to see if there is at least `_value` left from the daily limit today. if there is, subtracts it and
 	// returns true. otherwise just returns false.
@@ -364,7 +364,7 @@ contract Wallet is multisig, multiowned, daylimit {
 		bytes data;
 	}
 
-	// MEHTODSS
+	// METHODSS
 
 	// constructor - just pass on the owner array to the multiowned and
 	// the limit to daylimit
@@ -417,7 +417,7 @@ contract Wallet is multisig, multiowned, daylimit {
 		}
 	}
 
-	// INTERNAL MEHTODSS
+	// INTERNAL METHODSS
 
 	function clearPending() internal {
 		uint length = m_pendingIndex.length;

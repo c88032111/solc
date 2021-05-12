@@ -134,7 +134,7 @@ GasMeter::GasConsumption GasMeter::estimateMax(AssemblyItem const& _item)
 			else
 				gas = GasConsumption::infinite();
 			if (_item.instruction() == Instruction::CALL)
-				gas += GasCosts::callNewAccountGas; // We very rarely know whehter the address exists.
+				gas += GasCosts::callNewAccountGas; // We very rarely know whether the address exists.
 			int valueSize = _item.instruction() == Instruction::DELEGATECALL ? 0 : 1;
 			if (!classes.knownZero(m_state->relativeStackElement(-1 - valueSize)))
 				gas += GasCosts::callValueTransferGas;

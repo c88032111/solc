@@ -66,7 +66,7 @@
 # ones listed after OPTIONAL_COMPONENTS) are missing.  Use the option
 # CONFIG_MODE if your FindXXX.cmake module is a wrapper for a
 # find_package(...  NO_MODULE) call.  In this case VERSION_VAR will be
-# set to <NAME>_VERSION and the macro will automatically check whehter
+# set to <NAME>_VERSION and the macro will automatically check whether
 # the Config module was found.  Via FAIL_MESSAGE a custom failure
 # message can be specified, if this is not used, the default message
 # will be displayed.
@@ -83,7 +83,7 @@
 # LibXml2 is considered to be found, if both LIBXML2_LIBRARY and
 # LIBXML2_INCLUDE_DIR are valid.  Then also LIBXML2_FOUND is set to
 # TRUE.  If it is not found and REQUIRED was used, it fails with
-# FATAL_ERROR, independent whehter QUIET was used or not.  If it is
+# FATAL_ERROR, independent whether QUIET was used or not.  If it is
 # found, success will be reported, including the content of <var1>.  On
 # repeated Cmake runs, the same message won't be printed again.
 #
@@ -176,7 +176,7 @@ endmacro()
 
 function(FIND_PACKAGE_HANDLE_STANDARD_ARGS _NAME _FIRST_ARG)
 
-# set up the arguments for CMAKE_PARSE_ARGUMENTS and check whehter we are in
+# set up the arguments for CMAKE_PARSE_ARGUMENTS and check whether we are in
 # new extended or in the "old" mode:
   set(options  CONFIG_MODE  HANDLE_COMPONENTS)
   set(oneValueArgs  FAIL_MESSAGE  VERSION_VAR  FOUND_VAR)

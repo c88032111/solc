@@ -111,7 +111,7 @@ persons. The keyword ``public`` automatically generates a function that
 allows you to access the current value of the state variable.
 Without this keyword, other contracts have no way to access the variable
 and only the code of this contract can write to it.
-The function will look somehting like this::
+The function will look something like this::
 
     function minter() returns (address) { return minter; }
 
@@ -206,7 +206,7 @@ Transactions
 
 A blockchain is a globally shared, transactional database.
 This means that everyone can read entries in the database just by participating in the network.
-If you want to change somehting in the database, you have to create a so-called transaction
+If you want to change something in the database, you have to create a so-called transaction
 which has to be accepted by all others.
 The word transaction implies that the change you want to make (assume you want to change
 two values at the same time) is either not done at all or completely applied. Furthermore,
@@ -283,7 +283,7 @@ determined at the time the contract is created
 (it is derived from the creator address and the number
 of transactions sent from that address, the so-called "nonce").
 
-Apart from the fact whehter an account stores code or not,
+Apart from the fact whether an account stores code or not,
 the EVM treats the two types equally, though.
 
 Every account has a persistent key-value store mapping 256-bit words to 256-bit

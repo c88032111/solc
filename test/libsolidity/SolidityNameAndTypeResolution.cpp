@@ -3220,7 +3220,7 @@ BOOST_AUTO_TEST_CASE(varM_disqualified_as_keyword)
 	char const* text = R"(
 		contract test {
 			function f() {
-				uintM somehting = 3;
+				uintM something = 3;
 				intM should = 4;
 				bytesM fail = "now";
 			}
@@ -3234,7 +3234,7 @@ BOOST_AUTO_TEST_CASE(long_uint_variable_fails)
 	char const* text = R"(
 		contract test {
 			function f() {
-				uint99999999999999999999999999 somehting = 3;
+				uint99999999999999999999999999 something = 3;
 			}
 		}
 	)";

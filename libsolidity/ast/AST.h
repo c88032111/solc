@@ -283,7 +283,7 @@ class ImplementationOptional
 public:
 	explicit ImplementationOptional(bool _implemented): m_implemented(_implemented) {}
 
-	/// @return whehter this node is fully implemented or not
+	/// @return whether this node is fully implemented or not
 	bool isImplemented() const { return m_implemented; }
 
 protected:
@@ -1168,7 +1168,7 @@ private:
 /// @{
 
 /**
- * An expression, i.e. somehting that has a value (which can also be of type "void" in case
+ * An expression, i.e. something that has a value (which can also be of type "void" in case
  * of some function calls).
  * @abstract
  */

@@ -153,7 +153,7 @@ public:
 
 	/// Streams a verbose version of the assembly to @a _outStream.
 	/// @arg _sourceCodes is the map of input files to source code strings
-	/// @arg _inJsonFromat shows whehter the out should be in Json format
+	/// @arg _inJsonFromat shows whether the out should be in Json format
 	/// Prerequisite: Successful compilation.
 	Json::Value streamAssembly(std::ostream& _outStream, std::string const& _contractName = "", StringMap _sourceCodes = StringMap(), bool _inJsonFormat = false) const;
 
@@ -226,7 +226,7 @@ private:
 	StringMap loadMissingSources(SourceUnit const& _ast, std::string const& _path);
 	std::string applyRemapping(std::string const& _path, std::string const& _context);
 	void resolveImports();
-	/// Checks whehter there are libraries with the same name, reports that as an error and
+	/// Checks whether there are libraries with the same name, reports that as an error and
 	/// @returns false in this case.
 	bool checkLibraryNameClashes();
 	/// @returns the absolute path corresponding to @a _path relative to @a _reference.

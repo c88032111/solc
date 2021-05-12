@@ -52,7 +52,7 @@ public:
 	gdtu::LinkerObject assembledObject() { return m_context.assembledObject(); }
 	gdtu::LinkerObject runtimeObject() { return m_context.assembledRuntimeObject(m_runtimeSub); }
 	/// @arg _sourceCodes is the map of input files to source code strings
-	/// @arg _inJsonFromat shows whehter the out should be in Json format
+	/// @arg _inJsonFromat shows whether the out should be in Json format
 	Json::Value streamAssembly(std::ostream& _stream, StringMap const& _sourceCodes = StringMap(), bool _inJsonFormat = false) const
 	{
 		return m_context.streamAssembly(_stream, _sourceCodes, _inJsonFormat);

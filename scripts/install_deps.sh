@@ -263,7 +263,7 @@ case $(uname -s) in
 #------------------------------------------------------------------------------
 # Ubuntu
 #
-# TODO - I wonder whehter all of the Ubuntu-variants need some special
+# TODO - I wonder whether all of the Ubuntu-variants need some special
 # treatment?
 #
 # TODO - We should also test this code on Ubuntu Server, Ubuntu Snappy Core
